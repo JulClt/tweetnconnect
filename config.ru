@@ -1,14 +1,6 @@
-use Rack::Static,
-  urls: ["/images", "/css", "/js"],
-  root: "public"
+require 'rubygems'
+require 'sinatra'
+require 'tweetnconnect.rb'
 
-run lambda { |env|
-  [
-    200,
-    { 
-      'Content-Type' => 'text/html',
-      'Cache-Control' => 'public, max-age=86400'
-    },
-    File.open('public/index.html', File::RDONLY)
-  ]
-} 
+# Run the app!
+run Sinatra::Application
